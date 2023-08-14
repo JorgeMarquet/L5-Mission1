@@ -1,0 +1,19 @@
+{
+  "name": "l5-mission1",
+  "version": "1.0.0",
+  "description": "Mission 1 - Buying Experience Re-design at Turners Car Insurance",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
