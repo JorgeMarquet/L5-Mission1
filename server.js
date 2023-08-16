@@ -5,37 +5,36 @@ const server = express();
 server.use(express.json());
 
 
-// Helper function to calculate car value
-function calculateCarValue(model, year) {
-    const alphabets = 'abcdefghijklmnopqrstuvwxyz';
-    
-    let total = 0;
-    for (let char of model.toLowerCase()) {
-        const index = alphabets.indexOf(char);
-        if (index !== -1) {
-            total += (index + 1);
-        }
-    }
 
-    return (total * 100) + year;
+// Helper function to calculate risk rating
+function calculateRiskRating(claimHistory) {
+    const keywords = ["collide", "crash", "scratch", "bump", "smash"];
+    let count = 0;
+
+    keywords.forEach(keyword => {
+        const regex = new RegExp(keyword, 'gi');
+        const matches = claimHistory.match(regex);
+        if (matches) {
+            count += matches.length;
+        }
+    });
+
+    // Clamp the value between 1 and 5
+    return Math.min(Math.max(count, 1), 5);
 }
 
-// API 1 Endpoint
-server.post('/api/car-value', (req, res) => {
-    const model = req.body.model;
-    const year = parseInt(req.body.year);
+// API Endpoint 2
+server.post('/api/risk-rating', (req, res) => {
+    const claimHistory = req.body.claim_history;
 
-    if (typeof model !== 'string' || isNaN(year) || year < 1900 || year > new Date().getFullYear()) {
+    if (typeof claimHistory !== 'string' || claimHistory.length === 0) {
         return res.json({ error: "there is an error" });
     }
 
-    const carValue = calculateCarValue(model, year);
-    res.json({ car_value: carValue });
+    const riskRating = calculateRiskRating(claimHistory);
+    res.json({ risk_rating: riskRating });
 });
 
-server.get("./", (req, res) => {
-    
-})
 
 
 const port = 8000;
