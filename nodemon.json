@@ -1,0 +1,6 @@
+{
+    "watch": ["src/"],  // if your TypeScript files are in the 'src' directory
+    "ext": ".ts,.js",
+    "ignore": ["node_modules"],
+    "exec": "ts-node ./src/server.ts"  // adjust the path to your entry point if needed
+  }
