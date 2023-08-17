@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express';
+import { carValueCalculator } from './carValueCalculator'
 
 const server = express();
 
@@ -23,7 +24,7 @@ server.post('/api/car-value', (req: Request, res: Response) => {
         return res.json({ error: "there is an error" });
     }
 
-    const carValue: number = calculateCarValue(model, year);
+    const carValue: number = carValueCalculator(model, year);
     res.json({ car_value: carValue });
 });
 

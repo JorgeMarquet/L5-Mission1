@@ -1,4 +1,4 @@
-import { calculateCarValue } from "../carValueCalculator";
+import { carValueCalculator } from "../carValueCalculator";
 
 describe ('Car value tests', () => {
 
@@ -12,7 +12,7 @@ describe ('Car value tests', () => {
   
       // Act
   
-      const actual = calculateCarValue(model,year);
+      const actual = carValueCalculator(model,year);
   
    
   
@@ -32,7 +32,7 @@ describe ('Car value tests', () => {
     
         // Act
     
-        const actual = calculateCarValue(model,year);
+        const actual = carValueCalculator(model,year);
     
      
     

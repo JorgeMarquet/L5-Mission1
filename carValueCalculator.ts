@@ -1,5 +1,5 @@
 
-export function calculateCarValue(model: string, year: number): number {
+export function carValueCalculator(model: string, year: number): number {
     const alphabets: string = 'abcdefghijklmnopqrstuvwxyz';
     
     let total: number = 0;
