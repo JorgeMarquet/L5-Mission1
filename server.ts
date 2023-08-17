@@ -11,20 +11,7 @@ interface CarValueRequestBody {
     year: number;
 }
 
-// Helper function to calculate car value
-function calculateCarValue(model: string, year: number): number {
-    const alphabets: string = 'abcdefghijklmnopqrstuvwxyz';
-    
-    let total: number = 0;
-    for (let char of model.toLowerCase()) {
-        const index: number = alphabets.indexOf(char);
-        if (index !== -1) {
-            total += (index + 1);
-        }
-    }
 
-    return (total * 100) + year;
-}
 
 // API 1 Endpoint
 server.post('/api/car-value', (req: Request, res: Response) => {
