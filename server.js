@@ -1,14 +1,17 @@
 // import express from dependencies in package.json
+
 const express = require('express');
 const server = express();
 // telling express that we will be exchanging data in json format
 server.use(express.json());
 
-
+server.get("/", (req,res)=> {
+    res.send("Hello World");
+})
 
 // Helper function to calculate risk rating
 function calculateRiskRating(claimHistory) {
-    const keywords = ["collide", "crash", "scratch", "bump", "smash"];
+    const keywords = ["collision", "crash", "scratch", "bump", "smashed"];
     let count = 0;
 
     keywords.forEach(keyword => {
